@@ -1,0 +1,47 @@
+input{
+	// border-color: @color-gray ;
+	// width: 100% ;
+	// height: 100% ;
+	outline: none;
+	border: none;
+	border:  .01rem  solid @color-gray;
+	&:focus{
+		border-color: @color-blue ;
+		// border-color: @color-gray
+	}
+}
+.@{css-prefix}-input{
+	padding: .08rem .1rem ;
+	font-size: .14rem ;
+	
+}
+.@{css-prefix}-input-field{
+	position: relative;
+	width: 100% ;
+	height: 100% ; 
+	@icon-close    :  mu-icon-close ; 
+	input{
+		&.icon-in-left{
+			padding-left: .2rem ;
+		}
+		&.icon-in-right{
+			padding-right: .2rem ;
+		}
+		&:valid~i[class=@{icon-close}]{
+			visibility: visible;
+		}
+	}
+	i{
+		position: absolute;
+		display: block;
+		content: "";
+		right: 0 ;
+		top: 50% ;
+		font-size: .12rem ;
+		color: @color-gray ;
+		.css-transform( translate3d(-.05rem,-50%,0) );
+		&[class=@{icon-close}]{
+			visibility: hidden;
+		}
+	}
+}

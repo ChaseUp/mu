@@ -1,0 +1,49 @@
+.@{css-prefix}-modal{
+	&.show{
+		display: block;
+	}
+	&.active{
+		.@{css-prefix}-modal-body{
+			.@{css-prefix}-modal-body-container{
+				.css-opacity(1) ;
+				.css-transform( scale(1) );
+				visibility: visible;
+			}
+		}
+	}
+	display: none;
+	.modal-fn-fixed(@z){
+		position: fixed;
+		top: 0 ;
+		bottom: 0 ;
+		right: 0 ;
+		left: 0 ;
+		z-index: @z ;
+	}
+	.@{css-prefix}-modal-back{
+		.modal-fn-fixed(@z-index-modal+1) ;
+		.css-opacity(.5);
+		background-color: #000000 ; 
+	}
+	.@{css-prefix}-modal-body{
+		cursor: pointer;
+		vertical-align: middle;
+		text-align: center;
+		&:before{
+			content: "" ;
+			display: inline-block;
+			height: 100% ;
+			vertical-align: middle;
+		}
+		.@{css-prefix}-modal-body-container{
+			display: inline-block;
+			background-color: #FFFFFF ;
+			vertical-align: middle;
+			.css-opacity(0) ;
+			.css-transform( scale(1.5) );
+			visibility: hidden;
+			.css-transition(all .5s ease-out);
+		}
+		.modal-fn-fixed(@z-index-modal+2) ;
+	}
+}
